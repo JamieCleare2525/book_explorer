@@ -1,0 +1,10 @@
+%nav#topbar.navbar.navbar-light.bg-faded
+  = link_to root_path, class: "navbar-brand" do
+    %h2 The Book Explorer
+
+  - if user_signed_in?
+    .float-right
+      %ul.navbar-nav.mr-auto
+        %li.nav-item
+          = link_to destroy_user_session_path, method: :delete do
+            Log out

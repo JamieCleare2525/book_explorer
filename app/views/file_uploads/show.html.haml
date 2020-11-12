@@ -1,0 +1,26 @@
+.row
+  .col-12
+    .p-4
+      %h4
+        File Name:
+        = @file_upload.name
+      .card
+        .card-header
+          %h4 Books
+        .card-block
+          %table.table
+            %thead
+              %tr
+                %th Title
+                %th Author
+                %th Date Publish
+                %th Unique Identifier
+                %th Publisher Name
+            %tbody
+              - @books.each do |book|
+                %tr
+                  %td= book[0]
+                  %td= book[1]
+                  %td= book[2]
+                  %td= book[3]
+                  %td= book[4]
