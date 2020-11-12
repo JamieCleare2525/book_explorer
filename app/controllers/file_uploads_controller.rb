@@ -14,8 +14,6 @@ class FileUploadsController < ApplicationController
     @csv_file = params[:file]
     raise FileError, 'Incorrect file type. Please upload a CSV file.' unless @csv_file.content_type == "text/csv"
     file_name = @csv_file.original_filename
-    file_uid = Time.zone.now.to_i
-    unique_file_name = "#{file_uid}_#{file_name}"
     ActiveRecord::Base.transaction do
       @file_upload = FileUpload.create!(user: current_user)
       CSV.foreach(@csv_file.path, headers: true) do |row|

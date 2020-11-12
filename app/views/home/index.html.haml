@@ -26,7 +26,7 @@
               %td File Name
               %td Created At (dd/mm/yyyy)
           %tbody
-            - current_user.file_uploads.each do |file|
+            - @file_uploads.each do |file|
               %tr
                 %td
                   = link_to file.name, file_upload_path(file)
